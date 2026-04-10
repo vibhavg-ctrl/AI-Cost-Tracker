@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Efficiency Intelligence | GSL CEO Office</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg0:#0a0e17;--bg1:#111827;--bg2:#1a2235;--bg2h:#1f2a40;--bgi:#0f1729;--brd:#2a3550;--brda:#3b82f6;--t1:#e2e8f0;--t2:#94a3b8;--tm:#64748b;--blue:#3b82f6;--cyan:#06b6d4;--green:#10b981;--amber:#f59e0b;--red:#ef4444;--purple:#8b5cf6;--pink:#ec4899;--r:12px;--rs:8px}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'DM Sans',sans-serif;background:var(--bg0);color:var(--t1);min-height:100vh}
+body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(59,130,246,.03)1px,transparent 1px),linear-gradient(90deg,rgba(59,130,246,.03)1px,transparent 1px);background-size:40px 40px;pointer-events:none;z-index:0}
+.app{display:flex;min-height:100vh;position:relative;z-index:1}
+.sidebar{width:240px;background:var(--bg1);border-right:1px solid var(--brd);padding:20px 14px;display:flex;flex-direction:column;position:fixed;top:0;left:0;bottom:0;z-index:10;overflow-y:auto}
+.logo{display:flex;align-items:center;gap:10px;padding:0 8px 20px;border-bottom:1px solid var(--brd);margin-bottom:20px}
+.logo-icon{width:34px;height:34px;background:linear-gradient(135deg,var(--blue),var(--cyan));border-radius:var(--rs);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;color:#fff;flex-shrink:0}
+.logo-text{font-size:14px;font-weight:700}.logo-sub{font-size:10px;color:var(--tm)}
+.nav-sec{margin-bottom:18px}.nav-sec-title{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:1.5px;color:var(--tm);padding:0 10px;margin-bottom:6px}
+.nav-item{display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:var(--rs);cursor:pointer;font-size:12px;color:var(--t2);margin-bottom:2px;transition:all .15s}
+.nav-item:hover{background:var(--bg2);color:var(--t1)}.nav-item.active{background:rgba(59,130,246,.12);color:var(--blue);font-weight:600}
+.nav-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+.sb-footer{margin-top:auto;padding-top:14px;border-top:1px solid var(--brd)}
+.sb-row{display:flex;align-items:center;gap:6px;font-size:10px;color:var(--tm);margin-bottom:3px}
+.sdot{width:5px;height:5px;border-radius:50%;flex-shrink:0}.sdot.on{background:var(--green)}.sdot.off{background:var(--amber)}
+.main{flex:1;margin-left:240px;padding:28px;max-width:calc(100vw - 240px)}
+.ph{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:24px;flex-wrap:wrap;gap:12px}
+.ph h1{font-size:20px;font-weight:700;margin-bottom:2px}.ph .sub{font-size:12px;color:var(--tm)}
+.hctrls{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.btn{padding:7px 16px;border-radius:var(--rs);font-size:12px;font-weight:600;cursor:pointer;border:none;transition:all .15s;display:flex;align-items:center;gap:6px;font-family:inherit}
+.btn-p{background:var(--blue);color:#fff}.btn-p:hover{background:#2563eb}
+.btn-o{background:transparent;border:1px solid var(--brd);color:var(--t2)}.btn-o:hover{border-color:var(--blue);color:var(--t1)}
+.btn-g{background:rgba(16,185,129,.15);border:1px solid rgba(16,185,129,.3);color:var(--green)}.btn-g:hover{background:rgba(16,185,129,.25)}
+.kpi-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px;margin-bottom:20px}
+.kpi{background:var(--bg2);border:1px solid var(--brd);border-radius:var(--r);padding:18px;transition:all .2s}
+.kpi:hover{border-color:var(--brda)}.kpi .lb{font-size:10px;color:var(--tm);font-weight:500;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px}
+.kpi .vl{font-family:'JetBrains Mono',monospace;font-size:22px;font-weight:700;margin-bottom:3px}
+.kpi .dt{font-size:11px;color:var(--t2)}
+.vl.blue{background:linear-gradient(135deg,var(--blue),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.vl.green{background:linear-gradient(135deg,var(--green),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.vl.amber{background:linear-gradient(135deg,var(--amber),var(--red));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.vl.purple{background:linear-gradient(135deg,var(--purple),var(--pink));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.card{background:var(--bg2);border:1px solid var(--brd);border-radius:var(--r);overflow:hidden;margin-bottom:20px}
+.card-h{display:flex;justify-content:space-between;align-items:center;padding:14px 18px;border-bottom:1px solid var(--brd)}
+.card-h h3{font-size:14px;font-weight:600}.card-h span{font-size:11px;color:var(--tm)}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px}
+.ds{background:var(--bg2);border:1px solid var(--brd);border-radius:var(--r);padding:18px}
+.ds h4{font-size:13px;font-weight:600;margin-bottom:12px}
+.dr{display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid rgba(42,53,80,.3)}
+.dr:last-child{border-bottom:none}.dr .k{font-size:12px;color:var(--tm)}.dr .v{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:500}
+table{width:100%;border-collapse:collapse}
+th{text-align:left;padding:9px 14px;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.8px;color:var(--tm);border-bottom:1px solid var(--brd);background:var(--bg1);position:sticky;top:0;white-space:nowrap}
+td{padding:9px 14px;font-size:12px;border-bottom:1px solid rgba(42,53,80,.4);color:var(--t2)}
+tr:hover td{background:var(--bg2h)}tr{cursor:pointer}
+.mono{font-family:'JetBrains Mono',monospace;font-size:11px}
+.badge{display:inline-block;padding:2px 8px;border-radius:20px;font-size:10px;font-weight:600;white-space:nowrap}
+.b-high{background:rgba(239,68,68,.15);color:var(--red)}.b-normal{background:rgba(59,130,246,.15);color:var(--blue)}
+.b-live{background:rgba(16,185,129,.15);color:var(--green)}.b-seed{background:rgba(100,116,139,.15);color:var(--tm)}
+.tb{display:inline-block;padding:2px 8px;border-radius:20px;font-size:10px;font-weight:600;white-space:nowrap}
+.loading{display:flex;align-items:center;justify-content:center;height:180px;color:var(--tm)}
+.spin{width:28px;height:28px;border:3px solid var(--brd);border-top-color:var(--blue);border-radius:50%;animation:spin .8s linear infinite;margin-right:10px}
+@keyframes spin{to{transform:rotate(360deg)}}
+.crumb{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--tm);margin-bottom:14px}
+.crumb a{color:var(--blue);cursor:pointer}.crumb a:hover{text-decoration:underline}.crumb .sep{color:var(--tm)}
+.toast{position:fixed;bottom:20px;right:20px;background:var(--bg2);border:1px solid var(--green);color:var(--green);padding:10px 18px;border-radius:var(--rs);font-size:12px;font-weight:500;z-index:100;animation:su .3s}
+@keyframes su{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.sc{background:var(--bg2);border:1px solid var(--brd);border-radius:var(--r);padding:20px;margin-bottom:14px}
+.sc h4{font-size:14px;font-weight:600;margin-bottom:4px}.sc .desc{font-size:12px;color:var(--tm);margin-bottom:14px}
+.ig{display:flex;gap:10px;align-items:center;margin-bottom:10px}
+.ig label{width:120px;font-size:12px;color:var(--t2);flex-shrink:0}
+.ig input{flex:1;background:var(--bgi);border:1px solid var(--brd);color:var(--t1);padding:7px 12px;border-radius:var(--rs);font-family:'JetBrains Mono',monospace;font-size:11px;outline:none}
+.ig input:focus{border-color:var(--blue)}.ig input::placeholder{color:var(--tm)}
+.sync-bar{background:var(--bg1);border:1px solid var(--brd);border-radius:var(--r);padding:14px 18px;margin-bottom:16px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.sync-step{display:flex;align-items:center;gap:6px;font-size:11px;color:var(--t2)}
+.step-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0}
+.step-dot.done{background:var(--green)}.step-dot.error{background:var(--red)}.step-dot.skipped{background:var(--tm)}.step-dot.running{background:var(--amber);animation:pulse 1s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+.prog-wrap{flex:1;min-width:160px;height:4px;background:var(--brd);border-radius:2px;overflow:hidden}
+.prog-fill{height:100%;border-radius:2px;background:linear-gradient(90deg,var(--blue),var(--cyan));transition:width .4s}
+.br{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.bl{width:90px;font-size:11px;font-weight:500;text-align:right;flex-shrink:0}
+.bt{flex:1;height:22px;background:var(--bgi);border-radius:5px;overflow:hidden}
+.bf{height:100%;border-radius:5px;display:flex;align-items:center;padding-left:8px;font-size:10px;font-family:'JetBrains Mono',monospace;font-weight:600;color:#fff;min-width:36px}
+.bv{width:70px;text-align:right;flex-shrink:0;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--t2)}
+::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:var(--brd);border-radius:3px}
+select{background:var(--bgi);border:1px solid var(--brd);color:var(--t1);padding:7px 12px;border-radius:var(--rs);font-size:12px;cursor:pointer;outline:none;font-family:inherit}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.9/babel.min.js"></script>
+<script type="text/babel">
+const{useState,useEffect,useCallback,useRef}=React;
+const API='http://127.0.0.1:8900/api';
+
+function fmt(n,d=0){return n==null?'-':Number(n).toLocaleString('en-IN',{maximumFractionDigits:d})}
+function fmtM(n){if(!n&&n!==0)return'-';if(n>=10000000)return(n/10000000).toFixed(2)+'Cr';if(n>=100000)return(n/100000).toFixed(2)+'L';if(n>=1000)return(n/1000).toFixed(1)+'K';return Number(n).toFixed(0)}
+function useFetch(url){
+  const[d,setD]=useState(null);const[l,setL]=useState(true);const[err,setErr]=useState(null);
+  useEffect(()=>{if(!url)return;setL(true);setErr(null);
+    fetch(url).then(r=>{if(!r.ok)throw new Error(`HTTP ${r.status}`);return r.json()})
+    .then(x=>{setD(x);setL(false)}).catch(e=>{setErr(e.message);setL(false)})
+  },[url]);
+  return{data:d,loading:l,error:err}
+}
+
+const TEAM_COLORS={"ERP":"var(--purple)","OMS":"var(--blue)","Data Platform":"var(--cyan)","Cloud POS":"var(--green)","Common Services":"var(--amber)","Data & AI":"var(--pink)","Infra & Platform":"var(--green)","Helpdesk":"var(--amber)","Product":"var(--cyan)","Chief Architect":"var(--red)","Accounts Team":"var(--tm)","GIP":"var(--amber)","Exit":"var(--red)"};
+function tbg(t){const c=TEAM_COLORS[t]||'var(--blue)';return{background:c.replace('var(--','rgba(').replace(')',',0.15)').replace('#',''),color:c}}
+
+// ── SYNC PANEL ────────────────────────────────────────────────────────────────
+function SyncPanel({onSynced}){
+  const[status,setStatus]=useState(null);const[syncing,setSyncing]=useState(false);const interval=useRef(null);
+  const poll=()=>{fetch(`${API}/sync/status`).then(r=>r.json()).then(s=>{setStatus(s);if(!s.running){clearInterval(interval.current);setSyncing(false);if(onSynced)onSynced()}})}
+  const startSync=async()=>{setSyncing(true);await fetch(`${API}/sync`,{method:'POST'});interval.current=setInterval(poll,1200)}
+  useEffect(()=>()=>clearInterval(interval.current),[]);
+
+  if(!status&&!syncing)return(
+    <div style={{display:'flex',alignItems:'center',gap:12,padding:'10px 14px',background:'var(--bg1)',border:'1px solid var(--brd)',borderRadius:'var(--r)',marginBottom:16,flexWrap:'wrap'}}>
+      <div style={{fontSize:12,color:'var(--tm)',flex:1}}>Live data sync: click to pull latest Cursor, Claude, GitHub and Jira data. Works once API keys are configured in Integrations.</div>
+      <button className="btn btn-p" onClick={startSync}>Sync Now</button>
+    </div>
+  );
+
+  return(
+    <div className="sync-bar">
+      <div style={{display:'flex',alignItems:'center',gap:10,flex:1,flexWrap:'wrap'}}>
+        {(status?.steps||[]).map((s,i)=>(
+          <div key={i} className="sync-step">
+            <div className={`step-dot ${s.status}`}/>
+            <span>{s.label}</span>
+            {s.detail&&<span style={{color:'var(--tm)'}}>({s.detail})</span>}
+          </div>
+        ))}
+      </div>
+      {syncing&&<div style={{display:'flex',alignItems:'center',gap:8,flexShrink:0}}>
+        <div className="prog-wrap"><div className="prog-fill" style={{width:`${status?.progress||0}%`}}/></div>
+        <span style={{fontSize:11,color:'var(--tm)',minWidth:30}}>{status?.progress||0}%</span>
+      </div>}
+      {!syncing&&<button className="btn btn-o" style={{fontSize:11}} onClick={startSync}>Sync Again</button>}
+    </div>
+  );
+}
+
+// ── OVERVIEW ──────────────────────────────────────────────────────────────────
+function OverviewPage({nav,month}){
+  const[refresh,setRefresh]=useState(0);
+  const{data:d,loading}=useFetch(`${API}/overview?month=${month}&_r=${refresh}`);
+  if(loading)return<div className="loading"><div className="spin"/>Loading...</div>;
+  if(!d)return<div className="loading" style={{color:'var(--red)'}}>Backend not reachable. Is the server running on port 8900?</div>;
+  return<div>
+    <SyncPanel onSynced={()=>setRefresh(r=>r+1)}/>
+    {d.live_data&&<div style={{padding:'8px 14px',background:'rgba(16,185,129,.08)',border:'1px solid rgba(16,185,129,.2)',borderRadius:'var(--rs)',marginBottom:14,fontSize:11,color:'var(--green)',display:'flex',alignItems:'center',gap:8}}>
+      <div style={{width:6,height:6,borderRadius:'50%',background:'var(--green)'}}/>Live data active — some values reflect latest API fetch
+    </div>}
+    <div className="kpi-grid">
+      <div className="kpi"><div className="lb">Total AI Spend</div><div className="vl blue">Rs.{fmt(d.total_cost)}</div><div className="dt">{d.total_users} users | seat + token</div></div>
+      <div className="kpi"><div className="lb">Seat Cost</div><div className="vl green">Rs.{fmt(d.total_seat_cost)}</div><div className="dt">Cursor {d.cursor_seats} | Claude {d.claude_seats} | ChatGPT {d.chatgpt_seats}</div></div>
+      <div className="kpi"><div className="lb">Token Cost</div><div className="vl amber">Rs.{fmt(d.total_token_cost)}</div><div className="dt">{fmt(d.total_cursor_sessions)} sessions | {fmtM(d.total_tokens_consumed)} tokens</div></div>
+      <div className="kpi"><div className="lb">Token % of Total</div><div className="vl purple">{((d.total_token_cost/Math.max(d.total_cost,1))*100).toFixed(1)}%</div><div className="dt">Variable cost ratio</div></div>
+    </div>
+    <div className="card">
+      <div className="card-h"><h3>Team Cost Breakdown</h3><span>Click team to drill down</span></div>
+      <div style={{padding:'16px 18px'}}>{d.teams.map(t=><div className="br" key={t.name} onClick={()=>nav('team',t.name)}>
+        <div className="bl"><span className="tb" style={tbg(t.name)}>{t.name}</span></div>
+        <div className="bt"><div className="bf" style={{width:`${Math.max((t.total_cost/Math.max(d.teams[0].total_cost,1))*100,4)}%`,background:`linear-gradient(90deg,${TEAM_COLORS[t.name]||'var(--blue)'},var(--cyan))`}}>Rs.{fmt(t.total_cost)}</div></div>
+        <div className="bv">{t.headcount}p</div>
+      </div>)}</div>
+    </div>
+    <div className="card">
+      <div className="card-h"><h3>Top 10 Cursor users by token volume</h3><span>{monthLabel(month)}</span></div>
+      <div style={{overflowX:'auto'}}><table><thead><tr><th>Name</th><th>Team</th><th>Sessions</th><th>Total tokens</th><th>Token cost</th><th>Model</th><th>Usage</th></tr></thead>
+      <tbody>{d.top_cursor_users.map((u,i)=><tr key={i} onClick={()=>nav('user',u.id)}>
+        <td style={{color:'var(--t1)',fontWeight:500}}>{u.name}</td>
+        <td><span className="tb" style={tbg(u.team)}>{u.team}</span></td>
+        <td className="mono">{fmt(u.sessions)}</td><td className="mono">{fmtM(u.total_tokens)}</td>
+        <td className="mono" style={{color:'var(--amber)'}}>Rs.{fmt(u.cost_inr)}</td>
+        <td className="mono" style={{fontSize:10}}>{u.top_model}</td>
+        <td><span className={`badge ${u.usage_level==='HIGH'?'b-high':'b-normal'}`}>{u.usage_level}</span></td>
+      </tr>)}</tbody></table></div>
+    </div>
+  </div>
+}
+
+// ── TEAM ──────────────────────────────────────────────────────────────────────
+function TeamPage({teamName,nav,month}){
+  const{data:d,loading}=useFetch(`${API}/team/${encodeURIComponent(teamName)}?month=${month}`);
+  if(loading)return<div className="loading"><div className="spin"/>Loading...</div>;
+  if(!d)return null;
+  return<div>
+    <div className="crumb"><a onClick={()=>nav('overview')}>Overview</a><span className="sep">/</span><span>{teamName}</span></div>
+    <div className="kpi-grid">
+      <div className="kpi"><div className="lb">Total Cost</div><div className="vl blue">Rs.{fmt(d.total_cost)}</div><div className="dt">{d.headcount} members</div></div>
+      <div className="kpi"><div className="lb">Seat Cost</div><div className="vl green">Rs.{fmt(d.total_seat_cost)}</div><div className="dt">Cursor {d.cursor_users} | Claude {d.claude_users} | ChatGPT {d.chatgpt_users}</div></div>
+      <div className="kpi"><div className="lb">Token Cost</div><div className="vl amber">Rs.{fmt(d.total_token_cost)}</div><div className="dt">{fmt(d.total_cursor_sessions)} Cursor sessions</div></div>
+      <div className="kpi"><div className="lb">Total tokens</div><div className="vl purple">{fmtM(d.total_tokens_consumed)}</div><div className="dt">Cursor consumption</div></div>
+    </div>
+    <div className="card">
+      <div className="card-h"><h3>Team Members</h3><span>Click member for full profile</span></div>
+      <div style={{overflowX:'auto'}}><table><thead><tr><th>Name</th><th>Title</th><th>Loc</th><th>Tools</th><th>Seat</th><th>Token</th><th>Total</th><th>Sessions</th><th>Tokens</th><th>On-demand</th><th>Usage</th></tr></thead>
+      <tbody>{d.members.map(m=><tr key={m.id} onClick={()=>nav('user',m.id)}>
+        <td style={{color:'var(--t1)',fontWeight:500,whiteSpace:'nowrap'}}>{m.name}</td>
+        <td style={{fontSize:11,whiteSpace:'nowrap'}}>{m.title}</td>
+        <td className="mono">{m.location}</td>
+        <td style={{fontSize:10,whiteSpace:'nowrap'}}>{m.tools.join(', ')}</td>
+        <td className="mono">Rs.{fmt(m.seat_cost)}</td>
+        <td className="mono" style={{color:m.token_cost>5000?'var(--amber)':'inherit'}}>Rs.{fmt(m.token_cost)}</td>
+        <td className="mono" style={{fontWeight:600}}>Rs.{fmt(m.total_cost)}</td>
+        <td className="mono">{m.cursor_sessions||'-'}</td>
+        <td className="mono">{m.cursor_total_tokens?fmtM(m.cursor_total_tokens):'-'}</td>
+        <td className="mono" style={{color:m.cursor_ondemand>0?'var(--red)':'inherit'}}>{m.cursor_ondemand||'-'}</td>
+        <td>{m.cursor_usage_level?<span className={`badge ${m.cursor_usage_level==='HIGH'?'b-high':'b-normal'}`}>{m.cursor_usage_level}</span>:'-'}</td>
+      </tr>)}</tbody></table></div>
+    </div>
+  </div>
+}
+
+// ── USER ──────────────────────────────────────────────────────────────────────
+function UserPage({userId,nav,month}){
+  const{data:d,loading}=useFetch(`${API}/user/${encodeURIComponent(userId)}?month=${month}`);
+  if(loading)return<div className="loading"><div className="spin"/>Loading...</div>;
+  if(!d)return null;
+  const cd=d.cursor_usage;const c=d.cost_breakdown;
+  return<div>
+    <div className="crumb"><a onClick={()=>nav('overview')}>Overview</a><span className="sep">/</span><a onClick={()=>nav('team',d.team)}>{d.team}</a><span className="sep">/</span><span>{d.name}</span></div>
+    <div style={{display:'flex',alignItems:'center',gap:14,marginBottom:20,flexWrap:'wrap'}}>
+      <div style={{width:44,height:44,borderRadius:'50%',background:'linear-gradient(135deg,var(--blue),var(--cyan))',display:'flex',alignItems:'center',justifyContent:'center',fontSize:16,fontWeight:700,color:'#fff',flexShrink:0}}>
+        {d.name.split(' ').map(n=>n[0]).join('').slice(0,2)}
+      </div>
+      <div>
+        <div style={{display:'flex',alignItems:'center',gap:8,marginBottom:3}}>
+          <h2 style={{fontSize:18,fontWeight:700}}>{d.name}</h2>
+          <span className={`badge ${d.data_source==='live'?'b-live':'b-seed'}`}>{d.data_source==='live'?'Live data':'Seeded data'}</span>
+        </div>
+        <div style={{fontSize:12,color:'var(--tm)'}}>{d.title} | {d.location} | <span className="tb" style={tbg(d.team)}>{d.team}</span></div>
+      </div>
+    </div>
+    <div className="kpi-grid">
+      <div className="kpi"><div className="lb">Total Cost</div><div className="vl blue">Rs.{fmt(c.total_cost)}</div><div className="dt">Seat Rs.{fmt(c.seat_cost)} + Token Rs.{fmt(c.token_cost)}</div></div>
+      <div className="kpi"><div className="lb">Tools</div><div className="vl green" style={{fontSize:16}}>{d.tools.join(' + ')}</div><div className="dt">Active subscriptions</div></div>
+      {cd&&<><div className="kpi"><div className="lb">Sessions</div><div className="vl purple">{fmt(cd.sessions)}</div><div className="dt">{cd.free_sessions} free | {cd.included_sessions} included | {cd.ondemand_sessions} on-demand</div></div>
+      <div className="kpi"><div className="lb">Daily avg tokens</div><div className="vl amber">{fmtM(cd.daily_avg_tokens)}</div><div className="dt">{cd.usage_level} | {cd.top_model}</div></div></>}
+    </div>
+    {cd&&<div className="grid-2">
+      <div className="ds"><h4>Token breakdown</h4>
+        <div className="dr"><span className="k">Input (w/o cache)</span><span className="v">{fmtM(cd.input_tokens)}</span></div>
+        <div className="dr"><span className="k">Cache read</span><span className="v">{fmtM(cd.cache_read)}</span></div>
+        <div className="dr"><span className="k">Output</span><span className="v">{fmtM(cd.output_tokens)}</span></div>
+        <div className="dr"><span className="k">Total tokens</span><span className="v" style={{color:'var(--blue)'}}>{fmtM(cd.total_tokens)}</span></div>
+        <div className="dr"><span className="k">Avg tokens / session</span><span className="v">{fmtM(cd.avg_tokens_session)}</span></div>
+        <div className="dr"><span className="k">% of team tokens</span><span className="v">{(cd.pct_team*100).toFixed(2)}%</span></div>
+      </div>
+      <div className="ds"><h4>Cost &amp; session breakdown</h4>
+        <div className="dr"><span className="k">Token cost (USD)</span><span className="v">${cd.cost_usd}</span></div>
+        <div className="dr"><span className="k">Token cost (INR)</span><span className="v" style={{color:'var(--amber)'}}>Rs.{fmt(cd.cost_inr,2)}</span></div>
+        <div className="dr"><span className="k">Seat cost (INR)</span><span className="v">Rs.{fmt(c.seat_cost)}</span></div>
+        <div className="dr"><span className="k">Free sessions</span><span className="v">{cd.free_sessions}</span></div>
+        <div className="dr"><span className="k">Included sessions</span><span className="v">{cd.included_sessions}</span></div>
+        <div className="dr"><span className="k">On-demand sessions</span><span className="v" style={{color:cd.ondemand_sessions>0?'var(--red)':'inherit'}}>{cd.ondemand_sessions}</span></div>
+        <div className="dr"><span className="k">Top model</span><span className="v" style={{fontSize:10}}>{cd.top_model}</span></div>
+      </div>
+    </div>}
+    {!cd&&<div className="ds" style={{marginBottom:20}}><h4>No Cursor token data</h4><p style={{color:'var(--tm)',fontSize:12,marginTop:6}}>This user has Claude or ChatGPT only. Token data will populate once Claude/ChatGPT admin APIs are connected in Integrations.</p></div>}
+  </div>
+}
+
+// ── COSTS ─────────────────────────────────────────────────────────────────────
+function CostPage({month}){
+  const{data:d,loading}=useFetch(`${API}/cost-breakdown?month=${month}`);
+  if(loading)return<div className="loading"><div className="spin"/>Loading...</div>;
+  if(!d)return null;
+  const ts=d.reduce((s,r)=>s+r.seat_cost,0);const tt=d.reduce((s,r)=>s+r.token_cost,0);
+  const liveCount=d.filter(r=>r.data_source==='live').length;
+  return<div>
+    <div className="kpi-grid">
+      <div className="kpi"><div className="lb">Seat Cost</div><div className="vl blue">Rs.{fmt(ts)}</div><div className="dt">Fixed monthly</div></div>
+      <div className="kpi"><div className="lb">Token Cost</div><div className="vl amber">Rs.{fmt(tt,2)}</div><div className="dt">Variable (Cursor on-demand)</div></div>
+      <div className="kpi"><div className="lb">Grand Total</div><div className="vl purple">Rs.{fmt(ts+tt,2)}</div><div className="dt">Combined AI spend</div></div>
+      <div className="kpi"><div className="lb">Highest Individual</div><div className="vl green">Rs.{fmt(d[0]?.total_cost)}</div><div className="dt">{d[0]?.name}</div></div>
+    </div>
+    {liveCount>0&&<div style={{padding:'8px 14px',background:'rgba(16,185,129,.08)',border:'1px solid rgba(16,185,129,.2)',borderRadius:'var(--rs)',marginBottom:14,fontSize:11,color:'var(--green)'}}>
+      {liveCount} records showing live data from API sync
+    </div>}
+    <div className="card">
+      <div className="card-h"><h3>Per-user cost breakdown</h3><span>{d.length} users sorted by total cost</span></div>
+      <div style={{overflowX:'auto',maxHeight:'68vh'}}><table><thead><tr><th>Name</th><th>Team</th><th>Tools</th><th>Seat</th><th>Token</th><th>Total</th><th>Sessions</th><th>On-demand</th><th>Model</th><th>Source</th></tr></thead>
+      <tbody>{d.map(r=><tr key={r.id}>
+        <td style={{color:'var(--t1)',fontWeight:500,whiteSpace:'nowrap'}}>{r.name}</td>
+        <td><span className="tb" style={tbg(r.team)}>{r.team}</span></td>
+        <td style={{fontSize:10}}>{r.tools.join(', ')}</td>
+        <td className="mono">Rs.{fmt(r.seat_cost)}</td>
+        <td className="mono" style={{color:r.token_cost>5000?'var(--red)':r.token_cost>1000?'var(--amber)':'inherit'}}>Rs.{fmt(r.token_cost,2)}</td>
+        <td className="mono" style={{fontWeight:600}}>Rs.{fmt(r.total_cost,2)}</td>
+        <td className="mono">{r.cursor_sessions||'-'}</td>
+        <td className="mono" style={{color:r.cursor_ondemand>0?'var(--red)':'inherit'}}>{r.cursor_ondemand||'-'}</td>
+        <td className="mono" style={{fontSize:9}}>{r.cursor_model||'-'}</td>
+        <td><span className={`badge ${r.data_source==='live'?'b-live':'b-seed'}`}>{r.data_source}</span></td>
+      </tr>)}</tbody></table></div>
+    </div>
+  </div>
+}
+
+// ── SETTINGS ─────────────────────────────────────────────────────────────────
+function SettingsPage(){
+  const[config,setConfig]=useState(null);const[vals,setVals]=useState({});
+  const[saving,setSaving]=useState({});const[resetting,setResetting]=useState({});
+  const[resetAllBusy,setResetAllBusy]=useState(false);const[toast,setToast]=useState('');const[toastKind,setToastKind]=useState('ok');
+
+  const svcs=[
+    {key:'cursor',name:'Cursor Team Admin',icon:'⌨',desc:'Per-user token usage, sessions, and model breakdown. Find your API key at cursor.com/team/settings.',fields:[{k:'api_key',label:'API Key',secret:true},{k:'team_id',label:'Team ID',secret:false}]},
+    {key:'claude',name:'Claude Team Admin',icon:'◆',desc:'Per-user token usage and conversation counts. Get your key at console.anthropic.com under API Keys.',fields:[{k:'api_key',label:'API Key',secret:true},{k:'org_id',label:'Organization ID',secret:false}]},
+    {key:'github',name:'GitHub',icon:'⬡',desc:'Commits, PRs, lines of code, review time per user. Create a PAT at github.com/settings/tokens with read:org and repo scope.',fields:[{k:'token',label:'Personal Access Token',secret:true},{k:'org',label:'Organization',secret:false}]},
+    {key:'jira',name:'Jira',icon:'◈',desc:'Sprint velocity, story points, ticket cycle time. Create an API token at id.atlassian.com → Security → API tokens.',fields:[{k:'base_url',label:'Base URL',secret:false},{k:'email',label:'Email',secret:false},{k:'api_token',label:'API Token',secret:true}]},
+  ];
+
+  const showToast=(msg,kind='ok')=>{setToast(msg);setToastKind(kind);setTimeout(()=>setToast(''),3500)};
+
+  const refreshConfig=async()=>{const cfg=await(await fetch(`${API}/config`)).json();setConfig(cfg);return cfg};
+
+  useEffect(()=>{
+    fetch(`${API}/config`).then(r=>r.json()).then(cfg=>{
+      setConfig(cfg);
+      const init={};
+      svcs.forEach(s=>{init[s.key]={};s.fields.forEach(f=>{const fd=cfg[s.key]?.fields?.[f.k];init[s.key][f.k]=fd?.value||''})});
+      setVals(init);
+    }).catch(()=>{});
+  },[]);
+
+  const saveIntegration=async(svcKey)=>{
+    setSaving(p=>({...p,[svcKey]:true}));
+    const body={service:svcKey,enabled:config?.[svcKey]?.enabled||false};
+    const sv=vals[svcKey]||{};
+    Object.entries(sv).forEach(([k,v])=>{if(v)body[k]=v});
+    try{
+      const r=await fetch(`${API}/config/update`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
+      const res=await r.json();
+      if(res.status==='updated'){showToast(`${svcKey} integration saved`,'ok');await refreshConfig();}
+      else showToast('Save failed — unexpected response','err');
+    }catch(e){showToast('Save failed: '+e.message,'err')}
+    setSaving(p=>({...p,[svcKey]:false}));
+  };
+
+  const resetIntegration=async(svcKey)=>{
+    setResetting(p=>({...p,[svcKey]:true}));
+    try{
+      await fetch(`${API}/config/update`,{method:'POST',headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({service:svcKey,enabled:false})});
+      setVals(p=>({...p,[svcKey]:Object.fromEntries(svcs.find(s=>s.key===svcKey).fields.map(f=>[f.k,'']))}));
+      await refreshConfig();
+      showToast(`${svcKey} integration reset`,'warn');
+    }catch(e){showToast('Reset failed: '+e.message,'err')}
+    setResetting(p=>({...p,[svcKey]:false}));
+  };
+
+  const resetAll=async()=>{
+    setResetAllBusy(true);
+    try{
+      await Promise.all(svcs.map(s=>fetch(`${API}/config/update`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({service:s.key,enabled:false})})));
+      setVals(Object.fromEntries(svcs.map(s=>[s.key,Object.fromEntries(s.fields.map(f=>[f.k,'']))])));
+      await refreshConfig();
+      showToast('All integrations reset to demo mode','warn');
+    }catch(e){showToast('Reset all failed: '+e.message,'err')}
+    setResetAllBusy(false);
+  };
+
+  const toggle=async(svcKey)=>{
+    const ne=!(config?.[svcKey]?.enabled);
+    const body={service:svcKey,enabled:ne};
+    const sv=vals[svcKey]||{};Object.entries(sv).forEach(([k,v])=>{if(v)body[k]=v});
+    try{
+      await fetch(`${API}/config/update`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
+      setConfig(p=>({...p,[svcKey]:{...p[svcKey],enabled:ne}}));
+      showToast(`${svcKey} ${ne?'enabled':'disabled'}`,ne?'ok':'warn');
+    }catch(e){showToast('Toggle failed','err')}
+  };
+
+  const upd=(svc,field,val)=>setVals(p=>({...p,[svc]:{...p[svc],[field]:val}}));
+
+  if(!config)return<div className="loading"><div className="spin"/>Loading config...</div>;
+
+  const toastBorderColor=toastKind==='ok'?'var(--green)':toastKind==='warn'?'var(--amber)':'var(--red)';
+  const toastColor=toastKind==='ok'?'var(--green)':toastKind==='warn'?'var(--amber)':'var(--red)';
+
+  return<div style={{maxWidth:720}}>
+    <div style={{padding:'12px 16px',background:'rgba(59,130,246,.06)',border:'1px solid rgba(59,130,246,.15)',borderRadius:'var(--rs)',marginBottom:24,fontSize:12,color:'var(--t2)',lineHeight:1.6}}>
+      API keys are stored in memory only for this session and are never written to disk. Restart the backend to clear all keys completely.
+    </div>
+
+    {svcs.map(s=>{
+      const cfg=config[s.key]||{};const enabled=cfg.enabled||false;
+      const hasKey=s.fields.some(f=>cfg.fields?.[f.k]?.filled);
+      const statusLabel=enabled?'LIVE':hasKey?'CONFIGURED':'NOT SET';
+      const statusColor=enabled?'var(--green)':hasKey?'var(--amber)':'var(--tm)';
+      const statusBg=enabled?'rgba(16,185,129,.12)':hasKey?'rgba(245,158,11,.12)':'rgba(100,116,139,.12)';
+
+      return<div className="sc" key={s.key} style={{marginBottom:16}}>
+        {/* Header row */}
+        <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',marginBottom:12,paddingBottom:12,borderBottom:'1px solid var(--brd)'}}>
+          <div style={{display:'flex',alignItems:'center',gap:10}}>
+            <div style={{width:32,height:32,background:'var(--bgi)',border:'1px solid var(--brd)',borderRadius:'var(--rs)',display:'flex',alignItems:'center',justifyContent:'center',fontSize:14,flexShrink:0}}>{s.icon}</div>
+            <div>
+              <div style={{display:'flex',alignItems:'center',gap:8}}>
+                <span style={{fontSize:14,fontWeight:600}}>{s.name}</span>
+                <span style={{fontSize:9,fontWeight:700,color:statusColor,background:statusBg,padding:'2px 8px',borderRadius:10,letterSpacing:.4}}>{statusLabel}</span>
+              </div>
+              <div style={{fontSize:11,color:'var(--tm)',marginTop:2}}>{s.desc}</div>
+            </div>
+          </div>
+          {/* Enable toggle */}
+          <div style={{display:'flex',alignItems:'center',gap:8,flexShrink:0,marginLeft:14}}>
+            <span style={{fontSize:11,color:'var(--tm)'}}>{enabled?'Enabled':'Disabled'}</span>
+            <div onClick={()=>toggle(s.key)} style={{width:40,height:22,background:enabled?'var(--green)':'var(--bgi)',border:'1px solid '+(enabled?'var(--green)':'var(--brd)'),borderRadius:11,position:'relative',cursor:'pointer',transition:'all .2s',flexShrink:0}}>
+              <div style={{width:16,height:16,background:'#fff',borderRadius:'50%',position:'absolute',top:2,left:enabled?20:2,transition:'left .2s'}}/>
+            </div>
+          </div>
+        </div>
+
+        {/* Fields */}
+        <div style={{marginBottom:14}}>
+          {s.fields.map(f=>{
+            const fd=cfg.fields?.[f.k];const filled=fd?.filled;
+            return<div className="ig" key={f.k} style={{marginBottom:8,alignItems:'center'}}>
+              <label style={{display:'flex',alignItems:'center',gap:5,minWidth:0}}>
+                <span style={{whiteSpace:'nowrap'}}>{f.label}</span>
+                {filled&&<span style={{width:5,height:5,borderRadius:'50%',background:'var(--green)',display:'inline-block',flexShrink:0}}/>}
+              </label>
+              <input
+                type={f.secret?'password':'text'}
+                value={vals[s.key]?.[f.k]||''}
+                onChange={e=>upd(s.key,f.k,e.target.value)}
+                placeholder={filled?(f.secret?'••••••••  (enter new to replace)':fd?.value||''):`Enter ${f.label}...`}
+              />
+            </div>
+          })}
+        </div>
+
+        {/* Action buttons */}
+        <div style={{display:'flex',alignItems:'center',justifyContent:'flex-end',gap:10,paddingTop:12,borderTop:'1px solid var(--brd)'}}>
+          <button
+            className="btn btn-o"
+            style={{borderColor:'rgba(239,68,68,.3)',color:'var(--red)',fontSize:11}}
+            onClick={()=>resetIntegration(s.key)}
+            disabled={resetting[s.key]}
+          >
+            {resetting[s.key]?'Resetting...':'Reset Integration'}
+          </button>
+          <button
+            className="btn btn-p"
+            style={{fontSize:12}}
+            onClick={()=>saveIntegration(s.key)}
+            disabled={saving[s.key]}
+          >
+            {saving[s.key]?'Saving...':'Save Integration'}
+          </button>
+        </div>
+      </div>
+    })}
+
+    {/* Global reset section */}
+    <div style={{marginTop:24,padding:'16px 18px',background:'rgba(239,68,68,.04)',border:'1px solid rgba(239,68,68,.15)',borderRadius:'var(--r)'}}>
+      <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',flexWrap:'wrap',gap:12}}>
+        <div>
+          <div style={{fontSize:13,fontWeight:600,color:'var(--red)',marginBottom:3}}>Reset All Integrations</div>
+          <div style={{fontSize:11,color:'var(--tm)'}}>Clears all API keys and disables all live data sources. Data reverts to seeded values. This only affects the current session.</div>
+        </div>
+        <button
+          className="btn"
+          style={{background:'rgba(239,68,68,.1)',border:'1px solid rgba(239,68,68,.3)',color:'var(--red)',fontSize:12,flexShrink:0}}
+          onClick={resetAll}
+          disabled={resetAllBusy}
+        >
+          {resetAllBusy?'Resetting...':'Reset All Integrations'}
+        </button>
+      </div>
+    </div>
+
+    {toast&&<div className="toast" style={{borderColor:toastBorderColor,color:toastColor}}>{toast}</div>}
+  </div>
+}
+
+// ── CODE INTELLIGENCE ────────────────────────────────────────────────────────
+
+function UtilBadge({rate}){
+  const pct=(rate*100).toFixed(1)+'%';
+  const cls=rate>=0.8?'b-live':rate>=0.5?'b-normal':'b-high';
+  return <span className={`badge ${cls}`}>{pct}</span>;
+}
+
+function UserBarRow({user,maxVal}){
+  const max=maxVal||1;
+  const pct=v=>Math.max((v/max)*100,2)+'%';
+  return(
+    <div style={{marginBottom:14}}>
+      <div style={{fontSize:11,fontWeight:600,marginBottom:5,color:'var(--t1)',display:'flex',justifyContent:'space-between'}}>
+        <span>{user.name} <span style={{fontWeight:400,color:'var(--tm)',fontSize:10}}>({user.team})</span></span>
+        <UtilBadge rate={user.ai_utilization_rate}/>
+      </div>
+      <div className="br">
+        <div className="bl" style={{color:'var(--cyan)',fontSize:10}}>AI Written</div>
+        <div className="bt"><div className="bf" style={{width:pct(user.ai_lines_written),background:'linear-gradient(90deg,var(--blue),var(--cyan))'}}>
+          {fmtM(user.ai_lines_written)}
+        </div></div>
+      </div>
+      <div className="br">
+        <div className="bl" style={{color:'var(--green)',fontSize:10}}>Eff. Commits</div>
+        <div className="bt"><div className="bf" style={{width:pct(user.effective_new_commits),background:'linear-gradient(90deg,var(--green),var(--cyan))'}}>
+          {fmtM(user.effective_new_commits)}
+        </div></div>
+      </div>
+      {user.carryover_out>0&&<div className="br">
+        <div className="bl" style={{color:'var(--amber)',fontSize:10}}>Carryover</div>
+        <div className="bt"><div className="bf" style={{width:pct(user.carryover_out),background:'linear-gradient(90deg,var(--amber),var(--red))'}}>
+          {fmtM(user.carryover_out)}
+        </div></div>
+      </div>}
+    </div>
+  );
+}
+
+function CodeIntelTable({users,nav}){
+  return(
+    <div style={{overflowX:'auto'}}>
+      <table>
+        <thead><tr>
+          <th>Name</th><th>Team</th>
+          <th>AI Lines</th><th>Committed</th><th>Carry In</th>
+          <th>Rectified</th><th>Eff. Work</th>
+          <th>Utilization</th><th>Backfill %</th><th>Carry Out</th>
+        </tr></thead>
+        <tbody>
+          {users.map(u=>(
+            <tr key={u.user_id} onClick={()=>nav('code-intel-user',u.user_id)}>
+              <td style={{color:'var(--t1)',fontWeight:500}}>{u.name}</td>
+              <td><span className="tb" style={tbg(u.team)}>{u.team}</span></td>
+              <td className="mono">{fmt(u.ai_lines_written)}</td>
+              <td className="mono">{fmt(u.github_committed)}</td>
+              <td className="mono" style={{color:u.carryover_in>0?'var(--amber)':'var(--tm)'}}>{fmt(u.carryover_in)||'-'}</td>
+              <td className="mono" style={{color:u.rectification_lines>0?'var(--red)':'var(--tm)'}}>{fmt(u.rectification_lines)||'-'}</td>
+              <td className="mono" style={{color:'var(--green)'}}>{fmt(u.effective_new_commits)}</td>
+              <td><UtilBadge rate={u.ai_utilization_rate}/></td>
+              <td className="mono" style={{color:u.backfill_rate>0.15?'var(--amber)':'inherit'}}>{(u.backfill_rate*100).toFixed(1)}%</td>
+              <td className="mono" style={{color:u.carryover_out>0?'var(--amber)':'var(--tm)'}}>{u.carryover_out>0?fmt(u.carryover_out):'-'}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
+function CodeIntelPage({nav,month}){
+  const{data:d,loading}=useFetch(`${API}/code-intelligence/month/${month}`);
+  if(loading)return<div className="loading"><div className="spin"/>Loading...</div>;
+  if(!d||!d.org_summary)return<div style={{color:'var(--tm)',padding:24}}>No code intelligence data for {month}. Try February or March 2026.</div>;
+  const org=d.org_summary;
+  const maxAI=d.users.length?Math.max(...d.users.map(u=>u.ai_lines_written)):1;
+  const rectPct=org.total_committed>0?((org.total_rectifications/org.total_committed)*100).toFixed(1):0;
+  return(
+    <div>
+      <div className="kpi-grid">
+        <div className="kpi"><div className="lb">Org Avg AI Utilization</div>
+          <div className="vl blue">{(org.avg_utilization*100).toFixed(1)}%</div>
+          <div className="dt">Adjusted for carryover &amp; rectifications</div></div>
+        <div className="kpi"><div className="lb">Total Carryover Buffer</div>
+          <div className="vl amber">{fmtM(org.total_carryover_out)} lines</div>
+          <div className="dt">AI lines not yet committed → next month</div></div>
+        <div className="kpi"><div className="lb">Rectification %</div>
+          <div className="vl purple">{rectPct}%</div>
+          <div className="dt">Commits fixing prior-month code</div></div>
+        <div className="kpi"><div className="lb">Devs Analyzed</div>
+          <div className="vl green">{org.users_with_data}</div>
+          <div className="dt">Cursor users with commit data</div></div>
+      </div>
+
+      <div className="card">
+        <div className="card-h">
+          <h3>AI Lines Written vs GitHub Committed</h3>
+          <span>{month} · Temporal Attribution · Click row for history</span>
+        </div>
+        <div style={{padding:'16px 18px'}}>
+          {d.users.map(u=><UserBarRow key={u.user_id} user={u} maxVal={maxAI}/>)}
+        </div>
+      </div>
+
+      <div className="card">
+        <div className="card-h">
+          <h3>Per-Developer Attribution Detail</h3>
+          <span>Rectifications auto-detected via commit message heuristics</span>
+        </div>
+        <CodeIntelTable users={d.users} nav={nav}/>
+      </div>
+    </div>
+  );
+}
+
+function CodeIntelUserPage({userId,nav}){
+  const{data:d,loading}=useFetch(`${API}/code-intelligence?user_id=${userId}`);
+  if(loading)return<div className="loading"><div className="spin"/>Loading...</div>;
+  if(!d||!d.users||!d.users.length)return<div style={{color:'var(--tm)',padding:24}}>No data for this user.</div>;
+  const user=d.users[0];
+  const s=user.summary;
+  const maxAI=user.months.length?Math.max(...user.months.map(m=>m.ai_lines_written)):1;
+  return(
+    <div>
+      <div className="crumb">
+        <a onClick={()=>nav('code-intel')}>Code Intelligence</a>
+        <span className="sep">/</span>
+        <span>{user.name}</span>
+      </div>
+      <div className="kpi-grid">
+        <div className="kpi"><div className="lb">Avg Utilization</div>
+          <div className="vl blue">{(s.avg_utilization_rate*100).toFixed(1)}%</div>
+          <div className="dt">Across {user.months.length} month(s)</div></div>
+        <div className="kpi"><div className="lb">Current Buffer</div>
+          <div className="vl amber">{fmtM(s.current_carryover_buffer)} lines</div>
+          <div className="dt">Carried into next month</div></div>
+        <div className="kpi"><div className="lb">Total AI Lines</div>
+          <div className="vl green">{fmtM(s.total_ai_lines)}</div>
+          <div className="dt">AI-assisted lines written</div></div>
+        <div className="kpi"><div className="lb">Total Rectifications</div>
+          <div className="vl purple">{fmtM(s.total_rectifications)}</div>
+          <div className="dt">Lines fixing prior-month code</div></div>
+      </div>
+
+      <div className="card">
+        <div className="card-h"><h3>Monthly Breakdown — {user.name}</h3><span>{user.team} · {user.title}</span></div>
+        <div style={{padding:'16px 18px'}}>
+          {user.months.map(m=>(
+            <div key={m.month} style={{marginBottom:20}}>
+              <div style={{fontSize:12,fontWeight:600,color:'var(--t2)',marginBottom:8,borderBottom:'1px solid var(--brd)',paddingBottom:4}}>{m.month}</div>
+              <UserBarRow user={{...m,name:user.name,team:user.team}} maxVal={maxAI}/>
+              <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fill,minmax(160px,1fr))',gap:8,marginTop:6}}>
+                {[
+                  ['Carryover In',fmt(m.carryover_in),'var(--amber)'],
+                  ['Rectified Lines',fmt(m.rectification_lines),'var(--red)'],
+                  ['Eff. New Commits',fmt(m.effective_new_commits),'var(--green)'],
+                  ['Carryover Out',fmt(m.carryover_out),'var(--amber)'],
+                  ['Backfill %',(m.backfill_rate*100).toFixed(1)+'%','var(--purple)'],
+                  ['Heuristics',m.heuristics_applied.join(', ')||'none','var(--tm)'],
+                ].map(([k,v,c])=>(
+                  <div key={k} className="dr" style={{padding:'5px 0'}}>
+                    <span className="k">{k}</span>
+                    <span className="v" style={{color:c,fontSize:11}}>{v||'-'}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ── DATE FILTER ───────────────────────────────────────────────────────────────
+const MONTH_NAMES=['January','February','March','April','May','June','July','August','September','October','November','December'];
+function monthLabel(v){const[y,m]=v.split('-');return`${MONTH_NAMES[parseInt(m)-1]} ${y}`;}
+
+// Static fallback months (shown even before DB responds)
+const STATIC_MONTHS=['2026-04','2026-03','2026-02','2026-01','2025-12','2025-11'];
+
+function MonthPicker({value,onChange,availableMonths}){
+  // Merge static + DB months, deduplicated, sorted desc
+  const dbValues=(availableMonths||[]).map(m=>m.month);
+  const allValues=[...new Set([...dbValues,...STATIC_MONTHS])].sort().reverse();
+  const dbSet=new Set(dbValues);
+  return(
+    <div style={{display:'flex',alignItems:'center',gap:8}}>
+      <span style={{fontSize:11,color:'var(--tm)',whiteSpace:'nowrap'}}>Period</span>
+      <select value={value} onChange={e=>onChange(e.target.value)} style={{fontSize:12,padding:'6px 10px'}}>
+        {allValues.map(v=>{
+          const isDb=dbSet.has(v);
+          const dbMeta=(availableMonths||[]).find(m=>m.month===v);
+          const label=monthLabel(v)+(isDb?' ●':'');
+          return<option key={v} value={v} title={isDb?`DB: ${dbMeta?.cursor_users||0} users synced`:''}>{label}</option>;
+        })}
+      </select>
+      {dbSet.has(value)&&<span style={{fontSize:9,background:'rgba(16,185,129,.15)',color:'var(--green)',padding:'2px 6px',borderRadius:10,whiteSpace:'nowrap'}}>DB</span>}
+    </div>
+  );
+}
+
+// ── HISTORY PAGE ─────────────────────────────────────────────────────────────
+function HistoryPage({nav}){
+  const{data:avail,loading:loadingA}=useFetch(`${API}/available-months`);
+  const[selMonth,setSelMonth]=useState(null);
+  const[histData,setHistData]=useState(null);
+  const[loading,setLoading]=useState(false);
+  const[err,setErr]=useState(null);
+
+  const dbMonths=(avail||[]).filter(m=>m.source==='db');
+
+  const loadMonth=async(m)=>{
+    setSelMonth(m);setHistData(null);setErr(null);setLoading(true);
+    try{
+      const r=await fetch(`${API}/history/${m}`);
+      if(!r.ok){const e=await r.json();throw new Error(e.detail||'Not found');}
+      setHistData(await r.json());
+    }catch(e){setErr(e.message);}
+    setLoading(false);
+  };
+
+  if(loadingA)return<div className="loading"><div className="spin"/>Loading history...</div>;
+
+  return<div>
+    {dbMonths.length===0?(
+      <div className="card" style={{padding:32,textAlign:'center'}}>
+        <div style={{fontSize:14,fontWeight:600,marginBottom:8,color:'var(--t2)'}}>No historical data yet</div>
+        <div style={{fontSize:12,color:'var(--tm)',marginBottom:16}}>Configure your API keys in Integrations and run a sync. Each sync automatically saves data to the local SQLite database so you can access it months later.</div>
+        <button className="btn btn-p" onClick={()=>nav('settings')}>Configure APIs →</button>
+      </div>
+    ):(
+      <div>
+        <div className="kpi-grid" style={{marginBottom:20}}>
+          {dbMonths.map(m=>(
+            <div key={m.month} className="kpi" style={{cursor:'pointer',borderColor:selMonth===m.month?'var(--blue)':'var(--brd)'}}
+                 onClick={()=>loadMonth(m.month)}>
+              <div className="lb">{monthLabel(m.month)}</div>
+              <div className="vl green">{m.cursor_users} users</div>
+              <div className="dt">
+                {m.has_code_metrics&&<span style={{color:'var(--cyan)'}}>Code metrics · </span>}
+                Rs.{(m.total_cost_inr||0).toLocaleString('en-IN')} tokens
+              </div>
+              {m.last_synced&&<div style={{fontSize:9,color:'var(--tm)',marginTop:4}}>Synced {m.last_synced.slice(0,16).replace('T',' ')}</div>}
+            </div>
+          ))}
+        </div>
+
+        {loading&&<div className="loading"><div className="spin"/>Loading {selMonth}...</div>}
+        {err&&<div style={{color:'var(--red)',padding:16,fontSize:12}}>Error: {err}</div>}
+
+        {histData&&!loading&&(
+          <div>
+            <div className="kpi-grid">
+              <div className="kpi"><div className="lb">Total Users</div><div className="vl blue">{histData.summary.total_users}</div><div className="dt">{histData.month}</div></div>
+              <div className="kpi"><div className="lb">Token Cost</div><div className="vl amber">Rs.{fmt(histData.summary.total_token_cost,2)}</div><div className="dt">From DB</div></div>
+              <div className="kpi"><div className="lb">Total Cost</div><div className="vl purple">Rs.{fmt(histData.summary.total_cost,2)}</div><div className="dt">Seat + Token</div></div>
+              <div className="kpi"><div className="lb">Sessions</div><div className="vl green">{fmt(histData.summary.total_sessions)}</div><div className="dt">Cursor sessions</div></div>
+            </div>
+            <div className="card">
+              <div className="card-h"><h3>Historical Data — {monthLabel(histData.month)}</h3><span className="badge b-live">FROM DATABASE</span></div>
+              <div style={{overflowX:'auto'}}>
+                <table><thead><tr>
+                  <th>Name</th><th>Team</th><th>Seat Cost</th><th>Token Cost</th><th>Total</th><th>Sessions</th><th>Tokens</th><th>Model</th><th>AI Util%</th>
+                </tr></thead><tbody>
+                  {histData.users.map(u=>(
+                    <tr key={u.user_id}>
+                      <td style={{color:'var(--t1)',fontWeight:500}}>{u.name}</td>
+                      <td><span className="tb" style={tbg(u.team)}>{u.team}</span></td>
+                      <td className="mono">Rs.{fmt(u.seat_cost)}</td>
+                      <td className="mono">Rs.{fmt(u.token_cost,2)}</td>
+                      <td className="mono" style={{fontWeight:600}}>Rs.{fmt(u.total_cost,2)}</td>
+                      <td className="mono">{fmt(u.sessions)}</td>
+                      <td className="mono">{fmtM(u.total_tokens)}</td>
+                      <td style={{fontSize:10}}>{u.top_model||'-'}</td>
+                      <td>{u.ai_utilization_rate!=null?<UtilBadge rate={u.ai_utilization_rate}/>:'-'}</td>
+                    </tr>
+                  ))}
+                </tbody></table>
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
+    )}
+  </div>
+}
+
+// ── ROOT APP ──────────────────────────────────────────────────────────────────
+function App(){
+  const[page,setPage]=useState('overview');const[arg,setArg]=useState(null);const[toast,setToast]=useState('');
+  const[month,setMonth]=useState('2026-03');
+  const nav=useCallback((p,a)=>{setPage(p);setArg(a||null)},[]);
+  const{data:health}=useFetch(`${API}/health`);
+  const{data:teams}=useFetch(`${API}/teams`);
+  const{data:availMonths}=useFetch(`${API}/available-months`);
+  const allTeams=['ERP','OMS','Data Platform','Cloud POS','Common Services','Data & AI','Infra & Platform','Helpdesk','Product','Chief Architect','GIP','Exit','Accounts Team'];
+  const activeTeams=teams?allTeams.filter(t=>teams.some(x=>x.name===t)):[];
+  const pageTitle={overview:'AI Efficiency Overview',team:arg||'Team',user:'User Profile',costs:'Cost Breakdown',settings:'Integrations','code-intel':'Code Intelligence','code-intel-user':'Developer Attribution',history:'Data History'};
+  const curMonthLabel=monthLabel(month);
+  const export_csv=()=>{window.open(`${API}/export?month=${month}`,'_blank');setToast('CSV export started');setTimeout(()=>setToast(''),3000)};
+  const anyLive=health&&Object.values(health.integrations||{}).some(Boolean);
+  const dbMonths=(availMonths||[]).filter(m=>m.source==='db').length;
+  const showDateFilter=page!=='settings'&&page!=='history';
+
+  return<div className="app">
+    <nav className="sidebar">
+      <div className="logo">
+        <div className="logo-icon">AI</div>
+        <div><div className="logo-text">AI Efficiency</div><div className="logo-sub">GSL CEO Office</div></div>
+      </div>
+      <div className="nav-sec"><div className="nav-sec-title">Analytics</div>
+        <div className={`nav-item ${page==='overview'?'active':''}`} onClick={()=>nav('overview')}>Overview</div>
+        <div className={`nav-item ${page==='costs'?'active':''}`} onClick={()=>nav('costs')}>Cost Breakdown</div>
+        <div className={`nav-item ${page==='code-intel'||page==='code-intel-user'?'active':''}`} onClick={()=>nav('code-intel')}>Code Intelligence</div>
+      </div>
+      <div className="nav-sec"><div className="nav-sec-title">Teams</div>
+        {activeTeams.map(t=><div key={t} className={`nav-item ${page==='team'&&arg===t?'active':''}`} onClick={()=>nav('team',t)}>
+          <div className="nav-dot" style={{background:TEAM_COLORS[t]||'var(--blue)'}}/>
+          <span style={{fontSize:11}}>{t}</span>
+        </div>)}
+      </div>
+      <div className="nav-sec"><div className="nav-sec-title">System</div>
+        <div className={`nav-item ${page==='history'?'active':''}`} onClick={()=>nav('history')} style={{justifyContent:'space-between'}}>
+          <span>Data History</span>
+          {dbMonths>0&&<span style={{fontSize:9,background:'rgba(16,185,129,.2)',color:'var(--green)',padding:'1px 6px',borderRadius:10}}>{dbMonths}mo</span>}
+        </div>
+        <div className={`nav-item ${page==='settings'?'active':''}`} onClick={()=>nav('settings')}>Integrations</div>
+      </div>
+      <div className="sb-footer">
+        <div className="sb-row"><span className={`sdot ${health?'on':'off'}`}/>Backend v{health?.version||'...'}</div>
+        <div className="sb-row"><span className={`sdot ${dbMonths>0?'on':'off'}`}/>DB: {dbMonths>0?`${health?.db_months||0} months stored`:'No data yet'}</div>
+        <div className="sb-row"><span className={`sdot ${anyLive?'on':'off'}`}/>{anyLive?'Live APIs active':'APIs not configured'}</div>
+        <div className="sb-row"><span className="sdot on"/>Local only | 127.0.0.1</div>
+      </div>
+    </nav>
+    <main className="main">
+      <div className="ph">
+        <div>
+          <h1>{pageTitle[page]||'Dashboard'}</h1>
+          <div className="sub">{showDateFilter?curMonthLabel:'Settings'}&nbsp;&nbsp;|&nbsp;&nbsp;Ginni Systems Ltd.</div>
+        </div>
+        <div className="hctrls">
+          {showDateFilter&&<MonthPicker value={month} onChange={setMonth} availableMonths={availMonths||[]}/>}
+          {showDateFilter&&<button className="btn btn-o" onClick={export_csv}>Export CSV</button>}
+          {page==='overview'&&<button className="btn btn-g" onClick={()=>nav('settings')}>Configure APIs</button>}
+        </div>
+      </div>
+      {page==='overview'&&<OverviewPage nav={nav} month={month}/>}
+      {page==='team'&&<TeamPage teamName={arg} nav={nav} month={month}/>}
+      {page==='user'&&<UserPage userId={arg} nav={nav} month={month}/>}
+      {page==='costs'&&<CostPage month={month}/>}
+      {page==='settings'&&<SettingsPage/>}
+      {page==='history'&&<HistoryPage nav={nav}/>}
+      {page==='code-intel'&&<CodeIntelPage nav={nav} month={month}/>}
+      {page==='code-intel-user'&&<CodeIntelUserPage userId={arg} nav={nav}/>}
+    </main>
+    {toast&&<div className="toast">{toast}</div>}
+  </div>
+}
+
+ReactDOM.createRoot(document.getElementById('app')).render(<App/>);
+</script>
+</body>
+</html>
